@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Duel on the Bridge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="lobby" class="screen">
+  <h1 class="logo">DUEL<br>ON THE BRIDGE</h1>
+  <p class="tag">A two-player fan tribute to <i>King of the Bridge</i>.<br>
+    Every rule is a secret. Every opponent is a cheat.</p>
+  <div class="panel">
+    <button id="btn-create">Create duel</button>
+    <div class="or">- or -</div>
+    <input id="code" maxlength="4" placeholder="CODE" autocomplete="off" spellcheck="false">
+    <button id="btn-join">Join duel</button>
+  </div>
+  <button id="btn-how" class="link">How does this work?</button>
+  <p id="lobby-msg" class="msg"></p>
+</main>
+
+<main id="game" class="screen hidden">
+  <header class="bar">
+    <span>Room <b id="room"></b> <button id="btn-copy" class="tiny">copy link</button></span>
+    <span id="status"></span>
+    <button id="btn-mute" class="tiny">sound: on</button>
+  </header>
+  <div class="stage">
+    <section class="left">
+      <div class="player" id="opp-bar"><span id="opp-name"></span><span class="tok" id="opp-tok"></span><span class="clock" id="opp-clock"></span></div>
+      <canvas id="board" width="192" height="176"></canvas>
+      <div class="player" id="me-bar"><span id="me-name"></span><span class="tok" id="me-tok"></span><span class="clock" id="me-clock"></span></div>
+      <div class="controls">
+        <button id="btn-cheat">Cheat</button>
+        <button id="btn-resign" class="danger">Resign</button>
+      </div>
+      <p class="hint" id="hint"></p>
+    </section>
+    <aside class="right">
+      <div class="bookwrap">
+        <div class="book" id="book">
+          <div class="book-tools">
+            <button id="pg-prev" title="Previous pages">&#9664;</button>
+            <span id="pg-num"></span>
+            <button id="pg-next" title="Next pages">&#9654;</button>
+          </div>
+          <div class="spread" id="spread">
+            <div class="bpage left" id="pageL"></div>
+            <div class="bpage right" id="pageR"></div>
+          </div>
+        </div>
+        <button class="accuse-tab" id="accuse-tab" title="Accuse (Space)"><span>ACCUSE</span></button>
+        <div class="accuse-sheet" id="accuse-sheet">
+          <div class="rhead"><span class="mv">&#9881;</span> ACCUSE</div>
+          <p class="rtext">DO YOU SUSPECT THE OTHER COLOUR OF CHEATING?</p>
+          <p class="rtext">ACCUSE THEM BY ENTERING ACCUSE MODE, POINT AT THE PIECE, THEN NAME THE RULE.</p>
+          <p class="rtext small" id="accuse-note"></p>
+          <button id="btn-accuse" class="sketch">ACCUSE</button>
+        </div>
+      </div>
+      <div class="log" id="log"></div>
+    </aside>
+  </div>
+</main>
+
+<div id="toasts"></div>
+<div id="modal" class="hidden"><div class="modal-box" id="modal-box"></div></div>
+
+<script src="sprites.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
